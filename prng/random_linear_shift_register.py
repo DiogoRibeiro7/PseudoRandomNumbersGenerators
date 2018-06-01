@@ -12,8 +12,6 @@ class RandomLinearShiftRegister(RandomNumbersGenerator):
         self.mask = 2**bits_count-1
         self.seed &= self.mask
 
-        print(format(self.seed, "0b"))
-
     def __str__(self):
         result = "Bn = "
 

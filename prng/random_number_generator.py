@@ -14,7 +14,7 @@ class RandomNumbersGenerator(object):
         raise NotYetImplemented("Please override this method.")
 
     def benchmark(self, iteration_count=1000000):
-        print("Benchmarking Linear Modulus random numbers...")
+        print("Benchmarking {}...".format(self.name))
         print(self)
 
         begin_time = time.time()
@@ -29,13 +29,13 @@ class RandomNumbersGenerator(object):
 
         for i in range(iteration_count):
             value = self.rand()
-            print(value)
+            # print(value)
 
             if value in values:
                 values[value] += 1
 
                 if not period_found:
-                    print("Periode trouvée : ", i)
+                    print("Found period : ", i)
                     period_found = True
 
             else:
@@ -47,7 +47,7 @@ class RandomNumbersGenerator(object):
                 y_points_diagram.append(value)
 
         end_time = time.time()
-        print("Done in {0:.2f} seconds.".format(end_time-begin_time))
+        print("Done in {0:.2f} seconds.\n".format(end_time-begin_time))
 
         values_list = []
 
@@ -56,7 +56,7 @@ class RandomNumbersGenerator(object):
             for _ in range(values[item]):
                 values_list.append(item)
 
-        plt.hist(values_list)
+        plt.hist(values_list, 50)
         plt.title(self.name)
         plt.xlabel("Value")
         plt.ylabel("Frequency")
