@@ -2,7 +2,6 @@
 
 import time
 import matplotlib.pyplot as plt
-import plotly.plotly as py
 
 class RandomNumbersGenerator(object):
 
